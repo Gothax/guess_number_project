@@ -3,10 +3,10 @@ from random import *
 from tkinter.font import *
 
 layout = []
-anwer_list = []
+answer_list = []
 
 class MyApp:
-    def __init__(self,Parent):
+    def __init__(self, Parent):
         Parent.geometry('700x500')
         Parent.title('객체지향이라는걸 해보자')
         #font set
@@ -33,9 +33,9 @@ class MyApp:
         self.play_frame = LabelFrame(Parent, text='<Score Board>', relief='groove', labelanchor='n', width=600, height=200)
         self.play_frame.place(anchor='center', x=350, y=380)
         #info, entry(terminal _t), ok_button
-        self.info = Label(Parent, text='선택 대기중...');
+        self.info = Label(Parent, text='선택 대기중...')
         self.info.place(anchor='center', x=350, y=235)
-        self._t = Entry(Parent, state='disabled');
+        self._t = Entry(Parent, state='disabled')
         self._t.place(x=260, y=250)
         self._t.bind("<Return>", self.onPressEnter)
         self.ok_btn = Button(Parent, text='확인', command=self.onButtonClick(), state='disabled')
@@ -44,25 +44,25 @@ class MyApp:
         print("cpu_clicked 인공지능이랑 붙자!")
         # print('answer list :', answer_list)
         # print('cpu num : ', cpu_num[0])
-        self.cpu_btn['state'] = 'disabled';
-        self.ply_btn['state'] = 'disabled';
+        self.cpu_btn['state'] = 'disabled'
+        self.ply_btn['state'] = 'disabled'
         self.set_btn['state'] = 'disabled'  # 버튼 비활성화
-        self.ok_btn['state'] = 'active';
+        self.ok_btn['state'] = 'active'
         self._t['state'] = 'normal'  # 입력창 활성화
         self.info['text'] = '당신의 차례 입니다. 추측한 컴퓨터의 숫자를 입력하세요'
-        layout.append(Label(self.play_frame, text='<플레이어1>'));
+        layout.append(Label(self.play_frame, text='<플레이어1>'))
         layout[len(layout) - 1].place(x=50, y=0)
-        layout.append(Label(self.play_frame, text='<CPU>'));
+        layout.append(Label(self.play_frame, text='<CPU>'))
         layout[len(layout) - 1].place(x=160, y=0)
-        layout.append(Label(self.play_frame, text='회차'));
+        layout.append(Label(self.play_frame, text='회차'))
         layout[len(layout) - 1].place(x=10, y=20)
-        layout.append(Label(self.play_frame, text='입력'));
+        layout.append(Label(self.play_frame, text='입력'))
         layout[len(layout) - 1].place(x=50, y=20)
-        layout.append(Label(self.play_frame, text='결과'));
+        layout.append(Label(self.play_frame, text='결과'))
         layout[len(layout) - 1].place(x=90, y=20)
-        layout.append(Label(self.play_frame, text='입력'));
+        layout.append(Label(self.play_frame, text='입력'))
         layout[len(layout) - 1].place(x=150, y=20)
-        layout.append(Label(self.play_frame, text='결과'));
+        layout.append(Label(self.play_frame, text='결과'))
         layout[len(layout) - 1].place(x=190, y=20)
 
     def ply_click(self):
@@ -75,10 +75,10 @@ class MyApp:
         self.set_btn['state'] = 'disabled'  # 버튼 비활성화
         #layout-(LabelFrame-SetFrame)-(radiobutton,checkbutton)
         SetFrame = LabelFrame(text='설정', width=400, height=110, labelanchor='n')
-        max_num = IntVar();
-        dupl = IntVar();
+        max_num = IntVar()
+        dupl = IntVar()
         zero = IntVar()
-        layout.append(SetFrame);
+        layout.append(SetFrame)
         layout[len(layout) - 1].place(anchor='center', x=350, y=150)
 
         layout.append(Radiobutton(SetFrame, text='3자리', value=3, variable=max_num))
@@ -106,16 +106,14 @@ class MyApp:
         print("enter pressed")
         entryValue = self._t.get()
         print(entryValue)
-        self._t.delete(0,END)
+        self._t.delete(0, END)
     def onButtonClick(self):
         print("button clicked")
         entryValue = self._t.get()
         print(entryValue)
-        self._t.delete(0,END)
+        self._t.delete(0, END)
     # def ok_set(self):
     #     print("setting complete")
-
-
 
 root = Tk()
 MyApp(root)
